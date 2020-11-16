@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <script src="./jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <script>
+        
+        function Person(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+        const member = new Person("Lydia", "Hallie");
+        // 不能像普通对象那样给构造函数添加属性，如需要一次性给所有实例添加特性，应使用原型，如：
+        Person.prototype.getFullName = function () {
+            return '${this.firstName} ${this.lastName}'; 
+        }
+        /* 
+            上述做法才会使member.getFullName()生效。
+            优点：假设将方法getFullName()添加到构造函数本身，也许不是每个Person实例都需要这个方法，但每个实例都具有该属性，将浪费大量内存空间
+            相反只将它添加到原型中则其只存在于内存中的一个位置，但是所有实例都可以访问它！
+        */
+        // Person.getFullName = function () {
+        //     return '${this.firstName} ${this.lastName}';
+        // }
+        console.log(member.getFullName());
+    </script>
+</body>
+</html>
