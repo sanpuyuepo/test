@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title使用CSS3基本选择器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clear-fix:after,
+        .clear-fix:before {
+            display: table;
+            content: "";
+        }
+
+        .clear-fix:after {
+            clear: both;
+            overflow: hidden;
+        }
+
+        .demo {
+            width: 250px;
+            border: 1px solid #cccccc;
+            padding: 10px;
+            margin: 20px auto;
+        }
+
+        li {
+            list-style: none outside none;
+            float: left;
+            height: 20px;
+            line-height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            text-align: center;
+            background: #ff3366;
+            color: green;
+            margin-right: 5px;
+        }
+        .demo *{
+            background-color: orange;
+        }
+        ul {
+            background-color: grey;
+        }
+        #first {
+            background: lime;
+            color: #000;
+        }
+
+        #last {
+            background-color: #000;
+            color: lime;
+        }
+
+        .item {
+            background-color: green;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        /* 多类选择器 */
+        .item.important {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul class="clear-fix demo">
+        <li class="first" id="first">1</li>
+        <li class="active">2</li>
+        <li class="important item">3</li>
+        <li class="important">4</li>
+        <li class="item">5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li class="last" id="last">10</li>
+    </ul>
+</body>
+</html>

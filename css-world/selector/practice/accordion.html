@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>垂直手风琴</title>
+
+    <style>
+        .accordionMenu {
+            background-color: #ffffff;
+            color: #424242;
+            font: 12px  Arial, Verdana, sans-serif;
+            margin: 50px auto;
+            padding: 10px;
+            width: 500px;
+        }
+        .accordionMenu h2 {
+            margin: 5px 0;
+            padding: 0;
+            position: relative;
+        }
+        .accordionMenu h2::before {
+            /* 制作向下三角效果 */
+            border: 5px solid #ffffff;
+            border-color: #fff transparent transparent;
+            content: "";
+            height: 0;
+            position: absolute;
+            right: 10px;
+            top: 15px;
+            width: 0;
+        }
+        .accordionMenu h2 a {
+            /* 制作手风琴标题栏效果 */
+            background-color: #8f8f8f;
+            background: linear-gradient(top, #cecece, #8f8f8f);
+            border-radius: 5px;
+            color: #424242;
+            display: block;
+            font-size: 13px;
+            font-weight: normal;
+            margin: 0;
+            padding: 10px 10px;
+            text-shadow: 2px 2px 2px #aeaeae;
+            text-decoration: none;
+        }
+        /* 目标标题效果 */
+        .accordionMenu :target h2 a, 
+        .accordionMenu h2 a:focus,
+        .accordionMenu h2 a:hover,
+        .accordionMenu h2 a:active {
+            background-color: #2288dd;
+            background: linear-gradient(top, #6bb2ff, #2288dd);
+            color: #ffffff;
+        }
+        /* 标题栏对应内容 */
+        .accordionMenu p {
+            margin: 0;
+            /* 默认栏目内容高度为0，达到隐藏效果 */
+            height: 0;
+            overflow: hidden;
+            padding: 0 10px;
+            transition: height 0.5s ease-in;
+        }
+        .accordionMenu :target p {
+            height: 100px;
+            overflow: auto;
+        }
+        .accordionMenu :target h2::before {
+            border-color: transparent transparent transparent #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="accordionMenu">
+        <div class="menuSection" id="brand">
+            <h2><a href="#brand">Brand</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga natus labore aliquid quia, incidunt aliquam totam soluta, quidem officia tempora quae minima facere cumque cupiditate deleniti dignissimos sequi veniam laudantium?</p>
+        </div>
+        <div class="menuSection" id="promotion">
+            <h2><a href="#promotion">Promotion</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident a recusandae odit asperiores accusamus nihil tenetur exercitationem sunt voluptatibus eveniet aperiam necessitatibus eligendi ratione ut, perferendis animi vero inventore molestias!</p>
+        </div>
+        <div class="menuSection" id="event">
+            <h2><a href="#event">Event</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga impedit tempora temporibus at consequuntur quia, doloribus quisquam magni natus harum, quis velit rerum in molestias a sunt magnam quos? Repellat.</p>
+        </div>
+    </div>
+</body>
+</html>
